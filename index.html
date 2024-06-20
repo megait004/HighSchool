@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HighSchool</title>
+  </head>
+  <body
+    class="flex max-h-screen w-full flex-col items-center justify-center bg-gray-100"
+  >
+    <div
+      id="root"
+      class="flex h-screen max-h-screen w-full items-center justify-center"
+    ></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      document.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+      });
+
+      // document.addEventListener("keydown", (e) => {
+      //   if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === "I") {
+      //     e.preventDefault();
+      //   }
+      //   if (e.key === "F12") {
+      //     e.preventDefault();
+      //     displayMessage();
+      //   }
+      // });
+      document.addEventListener("wheel", (e) => {
+        document.body.style.zoom = "100%";
+
+        if (e.ctrlKey) {
+          {
+            passive: false;
+          }
+          document.body.style.zoom = "100%";
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.ctrlKey &&
+          (event.key === "f" ||
+            event.key === "s" ||
+            event.key === "p" ||
+            event.key === "i" ||
+            event.key === "j" ||
+            event.key === "k" ||
+            event.key === "l" ||
+            event.key === "o" ||
+            event.key === "n" ||
+            event.key === "t" ||
+            event.key === "w" ||
+            event.key === "q" ||
+            event.key === "z" ||
+            event.key === "b" ||
+            event.key === "g" ||
+            event.key === "h" ||
+            event.key === "m" ||
+            event.key === "r" ||
+            event.key === "d" ||
+            event.key === "e" ||
+            event.key === "y" ||
+            event.key === "u" ||
+            event.key === "o" ||
+            event.key === "p" ||
+            event.key === "f" ||
+            event.key === "j" ||
+            event.key === "k" ||
+            event.key === "l" ||
+            event.key === "n" ||
+            event.key === "m" ||
+            event.key === "t" ||
+            event.key === "s" ||
+            event.key === "w" ||
+            event.key === "q" ||
+            event.key === "z" ||
+            event.key === "x" ||
+            event.key === "c" ||
+            event.key === "v" ||
+            event.key === "b" ||
+            event.key === "h" ||
+            event.key === "g" ||
+            event.key === "y" ||
+            event.key === "r" ||
+            event.key === "e" ||
+            event.key === "d" ||
+            event.key === "1" ||
+            event.key === "2" ||
+            event.key === "3" ||
+            event.key === "4" ||
+            event.key === "5" ||
+            event.key === "6" ||
+            event.key === "7" ||
+            event.key === "8" ||
+            event.key === "9" ||
+            event.key === "!" ||
+            event.key === "@" ||
+            event.key === "#" ||
+            event.key === "$" ||
+            event.key === "%" ||
+            event.key === "^" ||
+            event.key === "&" ||
+            event.key === "*" ||
+            event.key === "(" ||
+            event.key === ")" ||
+            event.key === "-" ||
+            event.key === "_" ||
+            event.key === "=" ||
+            event.key === "+" ||
+            event.key === "[" ||
+            event.key === "]" ||
+            event.key === "{" ||
+            event.key === "}" ||
+            event.key === "|" ||
+            event.key === ";" ||
+            event.key === ":" ||
+            event.keyCode == 107 ||
+            event.keyCode == 109 ||
+            event.which == "61" ||
+            event.which == "107" ||
+            event.which == "173" ||
+            event.which == "109" ||
+            event.which == "187" ||
+            event.which == "189")
+        ) {
+          event.preventDefault();
+        }
+      });
+    </script>
+  </body>
+</html>
