@@ -1,0 +1,7 @@
+obj/
+bin/
+.vs/
+node_modules/
+build/
+package-lock.json/
+dist/

@@ -1,0 +1,56 @@
+name: Build
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout to branch react
+        uses: actions/checkout@v4
+        with:
+          ref: react
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Backup build folder
+        run: move dist ..\src
+      - name: Checkout to branch main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Copy build folder
+        run: mkdir ".\src" && xcopy /E ..\src .\src
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build && move .\src .\bin\Debug\net8.0-windows
+
+      - name: Zip build folder
+        run: Compress-Archive -Path .\bin\Debug\net8.0-windows\* -Destination Release.zip
+      - name: Release Package
+        uses: ncipollo/release-action@v1
+        with:
+          name: Package
+          tag: stable-release
+          body: This release contains pre-built binaries for Windows from the original repository.
+          artifacts: 'Release.zip'
+          token: ${{ secrets.TOKEN }}
+          allowUpdates: true
+          makeLatest: true
