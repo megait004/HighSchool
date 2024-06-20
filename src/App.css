@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  @apply focus:outline-none;
+  @apply appearance-none;
+  @apply select-none;
+  @apply selection:bg-pink-600;
+  @apply selection:text-white;
+}
+::-webkit-scrollbar {
+  @apply w-1;
+}
+::-webkit-scrollbar-track {
+  @apply bg-pink-100;
+  @apply rounded-full;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-pink-600;
+  @apply rounded-full;
+}
+
+label {
+  @apply flex;
+  @apply flex-col;
+  @apply gap-1;
+}
+input::placeholder {
+  @apply text-white;
+}
+#name::placeholder,
+#username::placeholder,
+#password::placeholder {
+  @apply text-pink-300;
+  @apply font-medium;
+}
+tr .body,
+td .body,
+th .body {
+  @apply border;
+  @apply border-pink-500;
+  @apply text-pink-600;
+  @apply text-center;
+  @apply font-semibold;
+}
+
+.bg-cat {
+  background-image: url("../src/assets/cat-nyan-cat.gif");
+  background-repeat: no-repeat;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
